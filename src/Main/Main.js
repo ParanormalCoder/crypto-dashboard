@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
 import {
     BrowserRouter as Router,
+    Route,
 } from 'react-router-dom';
 import {Container} from "reactstrap";
 
-import Header from "./Header/Header";
-import Main from "./Main/Main";
+import './Main.scss'
 
-export default class App extends Component {
+export default class Main extends Component {
     render() {
         return (
             <Container>
                 <Router>
-                    <div>
-                        <Header/>
-                        <Main />
-                    </div>
+                    <Route exact path='/' component={() => (<div>HOME</div>)}/>
+                    <Route exact path='/portfolio' component={() => (<div>Portfolio</div>)}/>
                 </Router>
             </Container>
         );
