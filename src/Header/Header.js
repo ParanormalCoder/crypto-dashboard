@@ -6,7 +6,8 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
+    Row
 } from 'reactstrap';
 
 export default class Header extends React.PureComponent {
@@ -22,7 +23,7 @@ export default class Header extends React.PureComponent {
 
     render() {
         return (
-            <div>
+            <Row>
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">Crypto Currency Dashboard</NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
@@ -37,7 +38,7 @@ export default class Header extends React.PureComponent {
                         </Nav>
                     </Collapse>
                 </Navbar>
-            </div>
+            </Row>
         );
     }
 }
