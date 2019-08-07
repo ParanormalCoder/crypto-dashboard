@@ -72,7 +72,7 @@ export default class CryptoList extends React.Component {
 
 CryptoList.propTypes = {
     list: PropTypes.array,
-    handleBuy: PropTypes.func
+    handleBuy: PropTypes.func.isRequired
 };
 
 CryptoList.defaultProps = {

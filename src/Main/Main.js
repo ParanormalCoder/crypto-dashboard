@@ -6,7 +6,9 @@ import {
 import {Container} from "reactstrap";
 
 import CryptoList from "../CryptoList/CryptoList";
+import Portfolio from "../Portfolio/Portfolio";
 import PriceService from "../Common/PriceService"
+import PortfolioService from "../Common/PortfolioService"
 
 import './Main.scss'
 
@@ -42,7 +44,8 @@ export default class Main extends Component {
                 <Router>
                     <Route exact path='/' component={() => (
                         <CryptoList list={this.state.priceList} handleBuy={() => Promise.resolve()}/>)}/>
-                    <Route exact path='/portfolio' component={() => (<div>Portfolio</div>)}/>
+                    <Route exact path='/portfolio' component={() => (
+                        <Portfolio loadPortfolio={PortfolioService.getList}/>)}/>
                 </Router>
             </Container>
         );
