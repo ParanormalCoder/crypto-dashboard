@@ -6,9 +6,10 @@ const currenciesService = require('../server/modules/currencies/service')
 
 describe("routes: prices", () => {
     beforeEach(async () => {
+        await common.createDB()
         return common.cleanDB()
     })
-    afterEach(() => {
+    afterEach(async () => {
         server.close();
     });
 

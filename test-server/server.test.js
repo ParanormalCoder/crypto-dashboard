@@ -4,10 +4,11 @@ const request = require("supertest");
 const common = require('./common')
 
 describe("routes: index", () => {
-    beforeEach(async ()=>{
+    beforeEach(async () => {
+        await common.createDB()
         return common.cleanDB()
     })
-    afterEach(() => {
+    afterEach(async () => {
         server.close();
     });
 

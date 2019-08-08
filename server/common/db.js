@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-const conf = require('../conf/server')
+const conf = require('../conf')
 
 module.exports = new Sequelize(
     conf.mysql.name,
