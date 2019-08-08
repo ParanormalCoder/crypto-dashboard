@@ -8,6 +8,7 @@ const getProps = () => ({
         {
             "id": 2492,
             "name": "Elastos",
+            "slug": "Elastos",
             "last_updated": "2019-08-07T18:23:08.000Z",
             "quote": {
                 "USD": {
@@ -24,6 +25,7 @@ const getProps = () => ({
         {
             "id": 3724,
             "name": "SOLVE",
+            "slug": "SOLVE",
             "last_updated": "2019-08-07T18:23:11.000Z",
             "quote": {
                 "USD": {

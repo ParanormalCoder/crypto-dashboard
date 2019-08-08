@@ -8,15 +8,22 @@ import './Portfolio.scss'
 export default class Portfolio extends React.Component {
     state = { list: [] }
 
-    renderList = () => this.state.list.map((currency, index) => (
-        <tr className='portfolio-list__currency' key={currency.id}>
-            <th>{index}</th>
-            <td>{currency.name}</td>
-            <td>{currency.value}</td>
-            <td>{currency.qty}</td>
-            <td>{currency.price}</td>
-        </tr>)
-    )
+    renderList = () => {
+        if(!(this.props.mappedPrices.size && this.state.list)) {
+            return null
+        }
+
+        return this.state.list.map((currency, index) => {
+            const {name, price} = this.props.mappedPrices.get(parseInt(currency.currencyId))
+            return (<tr className='portfolio-list__currency' key={currency.currencyId}>
+                <th>{index}</th>
+                <td>{name}</td>
+                <td>{currency.totalQty}</td>
+                <td>{parseFloat(currency.averagePrice).toFixed(2)}</td>
+                <td>{price}</td>
+            </tr>)
+        })
+    }
 
     async componentDidMount() {
         const list = await this.props.loadPortfolio();
@@ -32,8 +39,8 @@ export default class Portfolio extends React.Component {
                         <th>#</th>
                         <th>Currency name</th>
                         <th>Quantity</th>
-                        <th>Value</th>
-                        <th>Price</th>
+                        <th>Average Value</th>
+                        <th>Current Price</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,7 +53,10 @@ export default class Portfolio extends React.Component {
 }
 
 Portfolio.propTypes = {
+    mappedPrices: PropTypes.any,
     loadPortfolio: PropTypes.func.isRequired
 };
 
-Portfolio.defaultProps = {};
+Portfolio.defaultProps = {
+    mappedPrices: new Map()
+};

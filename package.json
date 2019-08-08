@@ -44,9 +44,6 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "devDependencies": {
     "moxios": "^0.4.0",
     "sinon": "^7.4.1",

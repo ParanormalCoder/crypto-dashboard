@@ -3,7 +3,7 @@ const { URL } = require('url')
 const conf = require('../../conf')
 const repo = require('./repository')
 
-let UPDATE_JOB_INTERVAL_PERIOD = 30 * 60 * 1000
+let UPDATE_JOB_INTERVAL_PERIOD = 30 * 60 * 1000 // every 30 mins prices get updated
 let refreshInterval = null
 
 class CurrenciesService {
@@ -47,6 +47,7 @@ class CurrenciesService {
         }
 
         const minimizedPricesData = prices.map(currency => ({
+            id: currency.id,
             name: currency.name,
             slug: currency.slug,
             price: currency.quote.USD.price

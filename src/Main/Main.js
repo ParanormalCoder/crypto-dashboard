@@ -39,13 +39,18 @@ export default class Main extends Component {
     }
 
     render() {
+        const mappedPrices = new Map()
+        this.state.priceList.forEach(currency => {
+            mappedPrices.set(currency.id, currency)
+        })
+
         return (
             <Container>
                 <Router>
                     <Route exact path='/' component={() => (
-                        <CryptoList list={this.state.priceList} handleBuy={() => Promise.resolve()}/>)}/>
+                        <CryptoList list={this.state.priceList} handleBuy={PortfolioService.buy}/>)}/>
                     <Route exact path='/portfolio' component={() => (
-                        <Portfolio loadPortfolio={PortfolioService.getList}/>)}/>
+                        <Portfolio loadPortfolio={PortfolioService.getList} mappedPrices={mappedPrices}/>)}/>
                 </Router>
             </Container>
         );

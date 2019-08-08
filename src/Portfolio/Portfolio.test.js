@@ -5,20 +5,13 @@ import Portfolio from './Portfolio';
 const getProps = () => ({
     loadPortfolio: () => Promise.resolve(
         [{
-            "id": 2492,
-            "name": "Elastos01",
-            "value": 3.27944523709,
-            "price": 3.27944523709,
-            "qty": 32,
-        },
-            {
-                "id": 2492,
-                "name": "Elastos02",
-                "value": 3.27944523709,
-                "price": 3.27944523709,
-                "qty": 32,
-            }
-        ])
+            "currencyId": "1", "totalQty": "23", "averagePrice": "11564.730000"
+        }, {
+            "currencyId": "52",
+            "totalQty": "2333",
+            "averagePrice": "0.310000"
+        }]),
+    mappedPrices: new Map([[1, {price:"1", name: 'abcd'}],[52, {price:"13", name: '3abcd'}]])
 })
 
 

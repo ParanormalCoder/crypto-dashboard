@@ -8,8 +8,8 @@ import './CryptoList.scss'
 export default class CryptoList extends React.Component {
     state = { order: {} }
 
-    handleBuy = (currencyName) => {
-        this.props.handleBuy(currencyName, this.state.order[currencyName]).then(
+    handleBuy = (currencySlug) => {
+        this.props.handleBuy(currencySlug, this.state.order[currencySlug]).then(
             () => {
                 this.setState({ order: {} })
             }
@@ -27,22 +27,23 @@ export default class CryptoList extends React.Component {
         }))
     }
 
-    isInputDisabled = currencyName => {
-        return !(this.state.order[currencyName] && this.state.order[currencyName] > 0)
+    isInputDisabled = currencySlug => {
+        return !(this.state.order[currencySlug] && this.state.order[currencySlug] > 0)
     }
 
-    renderList = () => this.props.list.map((currency, index) => (<tr className='crypto-list__currency' key={currency.id}>
+    renderList = () => this.props.list.map((currency, index) => (
+        <tr className='crypto-list__currency' key={currency.id}>
             <th>{index}</th>
             <td>{currency.name}</td>
-            <td>{currency.last_updated}</td>
-            <td>{currency.quote.USD.price.toFixed(2)}</td>
+            <td>{currency.updatedAt}</td>
+            <td>{parseFloat(currency.price).toFixed(2)}</td>
             <td><InputGroup>
-                <Input type='number' name={currency.name} value={this.state.order[currency.name]}
+                <Input type='number' name={currency.slug} value={this.state.order[currency.slug]}
                        onChange={this.handleChange}
                        defaultValue={0.0}/>
                 <InputGroupAddon addonType="prepend">
-                    <Button disabled={this.isInputDisabled(currency.name)}
-                            onClick={this.handleBuy}>Buy</Button>
+                    <Button disabled={this.isInputDisabled(currency.slug)}
+                            onClick={() => this.handleBuy(currency.slug)}>Buy</Button>
                 </InputGroupAddon>
             </InputGroup></td>
         </tr>)

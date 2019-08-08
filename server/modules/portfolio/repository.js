@@ -5,7 +5,7 @@ const { Currencies } = require('../currencies/model')
 
 class PortfolioRepo {
     static async getAll() {
-        const portfolio = await model.Portfolio.findAll({
+        return model.Portfolio.findAll({
             where: {},
             group: ['currencyId'],
             attributes: [
