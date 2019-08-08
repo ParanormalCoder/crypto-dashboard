@@ -4,6 +4,7 @@ import React from 'react';
 import {Table} from 'reactstrap';
 
 import './Portfolio.scss'
+import Utils from "../Common/Utils";
 
 export default class Portfolio extends React.Component {
     state = { list: [] }
@@ -19,8 +20,8 @@ export default class Portfolio extends React.Component {
                 <th>{index}</th>
                 <td>{name}</td>
                 <td>{currency.totalQty}</td>
-                <td>{parseFloat(currency.averagePrice).toFixed(2)}</td>
-                <td>{price}</td>
+                <td>{Utils.getFormattedPrice(currency.totalPrice)}</td>
+                <td>{Utils.getFormattedPrice(price)}</td>
             </tr>)
         })
     }
@@ -39,8 +40,8 @@ export default class Portfolio extends React.Component {
                         <th>#</th>
                         <th>Currency name</th>
                         <th>Quantity</th>
-                        <th>Average Value</th>
-                        <th>Current Price</th>
+                        <th>Total Value</th>
+                        <th>Current Unit Price</th>
                     </tr>
                     </thead>
                     <tbody>

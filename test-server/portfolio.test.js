@@ -100,9 +100,13 @@ describe("routes: portfolio", () => {
         })
         expect(portfolio).toEqual([
             {
-                "averagePrice": "11848.610000", "totalQty": "36"
+                "averagePrice": "11848.610000",
+                "totalPrice": "426549.96",
+                "totalQty": "36"
             }, {
-                "averagePrice": "225.630000", "totalQty": "24"
+                "averagePrice": "225.630000",
+                "totalPrice": "5415.12",
+                "totalQty": "24"
             }]
         )
     });

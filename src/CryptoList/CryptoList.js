@@ -4,6 +4,7 @@ import React from 'react';
 import {Table, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 
 import './CryptoList.scss'
+import Utils from "../Common/Utils";
 
 export default class CryptoList extends React.Component {
     state = { order: {} }
@@ -11,7 +12,12 @@ export default class CryptoList extends React.Component {
     handleBuy = (currencySlug) => {
         this.props.handleBuy(currencySlug, this.state.order[currencySlug]).then(
             () => {
-                this.setState({ order: {} })
+                this.setState(state => ({
+                    order: {
+                        ...state.order,
+                        [currencySlug]: 0
+                    }
+                }))
             }
         )
     }
@@ -36,7 +42,7 @@ export default class CryptoList extends React.Component {
             <th>{index}</th>
             <td>{currency.name}</td>
             <td>{currency.updatedAt}</td>
-            <td>{parseFloat(currency.price).toFixed(2)}</td>
+            <td>{Utils.getFormattedPrice(currency.price)}</td>
             <td><InputGroup>
                 <Input type='number' name={currency.slug} value={this.state.order[currency.slug]}
                        onChange={this.handleChange}

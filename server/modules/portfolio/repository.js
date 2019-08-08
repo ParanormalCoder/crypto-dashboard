@@ -11,7 +11,8 @@ class PortfolioRepo {
             attributes: [
                 'currencyId',
                 [Sequelize.fn('SUM', Sequelize.col('qty')), 'totalQty'],
-                [Sequelize.fn('AVG', Sequelize.col('buyPrice')), 'averagePrice']
+                [Sequelize.fn('AVG', Sequelize.col('buyPrice')), 'averagePrice'],
+                [Sequelize.literal('SUM(qty*buyPrice)'), 'totalPrice']
             ]
         })
     }
