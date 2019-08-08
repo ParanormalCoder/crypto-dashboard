@@ -1,8 +1,12 @@
 const server = require("../server/server");
 const request = require("supertest");
 
+const common = require('./common')
 
 describe("routes: index", () => {
+    beforeEach(async ()=>{
+        return common.cleanDB()
+    })
     afterEach(() => {
         server.close();
     });

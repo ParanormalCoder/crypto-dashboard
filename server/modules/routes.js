@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 
 const portfolioRoutes = require('../modules/portfolio/routes')
-const pricesRoutes = require('../modules/prices/routes')
+const pricesRoutes = require('../modules/currencies/routes')
 
 let defaultRouter = new Router({})
 defaultRouter.get('/', async (ctx) => {
