@@ -3,7 +3,7 @@ A Full-stack JS Implementation For Crypto Dashboard
 
 #### Steps to start the application
 
-1. Set `CRYPTO_API_KEY` in file `config/default.js` as your Crypto API Key
+1. Set `CRYPTO_API_KEY` in file `server/conf/server.js` as your Crypto API Key
 
 2. `npm i` : Install packages 
 
