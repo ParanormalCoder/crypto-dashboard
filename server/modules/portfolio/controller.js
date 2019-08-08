@@ -6,8 +6,16 @@ class PortfolioCont {
     }
 
     static async buyOne(ctx) {
+        const { slug, qty } = ctx.request.body
+        if (
+            typeof slug !== 'string' || !slug.length ||
+            Number.isNaN(parseFloat(qty)) || parseFloat(qty) <= 0
+        ) {
+            ctx.throw(400)
+        }
+
         await service.buy(ctx.request.body)
-        ctx.body = { success: true}
+        ctx.body = { success: true }
     }
 }
 
