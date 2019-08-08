@@ -26,4 +26,3 @@ yarn-error.log*
 
 README.old*
 mysql_data
-server/conf/server.js

@@ -1,6 +1,6 @@
 module.exports = {
     pricesApiUrl: 'https://pro-api.coinmarketcap.com',
-    pricesApiKey: '046f0062-e270-4347-b4f5-2100f307e392',
+    pricesApiKey: 'CRYPTO_API_KEY',
     mysql: {
         name: 'dashboard_db',
         dialect: 'mysql',
