@@ -16,8 +16,8 @@ const Portfolio = db.define(
             allowNull: false
         },
         qty: {
-            type: Sequelize.INTEGER,
-            allowNull: true
+            type: Sequelize.DECIMAL(15, 2),
+            allowNull: false
         },
         buyPrice: {
             type: Sequelize.DECIMAL(15, 2),
